@@ -1,0 +1,26 @@
+双指针一次遍历：
+
+双指针同时遍历s和t, 相等时, 指针右移; 不等时, 只右移t的指针. 结束时, 如果s还没遍历完, 说明s中还有元素在t中没找到, 也就是s不是t的子序列
+
+bool isSubsequence(char * s, char * t){
+    if(!s) return true;
+    if(!t) return false;
+
+    while(*s != '\0' && *t != '\0')
+    {
+        if(*s == *t)
+        {
+            s ++;
+            t ++;
+        }
+        else
+        {
+            t ++;
+        }
+    }
+
+    if(*s != '\0')
+        return false;
+    
+    return true;
+}
